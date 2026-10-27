@@ -1,0 +1,45 @@
+// =============================================================================
+// MAIN STYLES ENTRY POINT - ITom Portfolio
+// =============================================================================
+
+// Foundation
+@use 'variables';
+@use 'mixins';
+@use 'base';
+
+// Components
+@use 'Preloader';
+
+/* Pencil-paper utility cards: download the PDF or read the accessible alternative.
+   Kept separate from the 3D canvas to remain usable with/without WebGL. */
+.portfolio-quicklinks {
+  position: fixed; z-index: 2147483600; right: 16px; bottom: 18px;
+  display: flex; flex-direction: column; align-items: stretch; gap: 11px;
+  font-family: 'Cabin Sketch', system-ui, sans-serif;
+}
+.portfolio-resume-link,.portfolio-overview-link {
+  display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+  padding: .7rem .95rem; border: 1.5px solid #302c29;
+  border-radius: 4px; background: #faf0d5; color: #302c29;
+  font: 700 13px/1.25 'Cabin Sketch', system-ui, sans-serif;
+  box-shadow: 3px 4px 0 #302c29;
+  text-decoration: none; transition: transform .2s ease, box-shadow .2s ease;
+  white-space: nowrap;
+}
+.portfolio-resume-link { background: #e2d4b8; border-style: dashed; }
+.portfolio-resume-link span:last-child {
+  font: 700 10px/1 sans-serif; border: 1px solid currentColor;
+  border-radius: 2px; padding: 2px 3px; letter-spacing: .08em;
+}
+.portfolio-resume-link:hover,.portfolio-resume-link:focus-visible,
+.portfolio-overview-link:hover,.portfolio-overview-link:focus-visible {
+  transform: translate(-2px,-2px); box-shadow: 5px 6px 0 #302c29;
+}
+.portfolio-resume-link:focus-visible,.portfolio-overview-link:focus-visible {
+  outline: 3px solid #907253; outline-offset: 3px;
+}
+@media (max-width: 680px) {
+  .portfolio-quicklinks { right: 10px; bottom: 14px; gap: 9px; }
+  .portfolio-resume-link,.portfolio-overview-link { font-size: 12px; padding:.58rem .72rem; }
+}
+
